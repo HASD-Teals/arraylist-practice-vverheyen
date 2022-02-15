@@ -6,15 +6,18 @@ public class ArrayListPractice {
         
         List <String> Trial = new ArrayList <String>();
         List <Integer> Num = new ArrayList <Integer>();
-        Num.add(1);
+        Num.add(12);
         Num.add(3);
+        Num.add(4);
+        Num.add(2);
+        Num.add(15);
         Trial.add(0,"dog");
         Trial.add("cats");
         Trial.add("cat");
         System.out.println(Trial);
         doubleList(Trial);
         System.out.println(Trial);
-
+       
     }
     public static void removeEvenLength(List<String> a) {
         for (int i=0; i<a.size(); i++) {
@@ -58,22 +61,23 @@ public class ArrayListPractice {
                 }
             }
         }
-    
-        //under construction
+
         public static void doubleList(List<String> a) {
-            for (int i=0; i<a.size()*2-1; i=i+2) {
-                if (i<a.size()*2-3) {
-                a.add(i+1,a.get(i)); 
-                }
-                else {
-                    a.add(a.get(a.size()*2-2));
-                }
+            for (int i=0; i<a.size(); i=i+2) {
+                a.add(i,a.get(i)); 
             }
-            
         }
         
         public static void minToFront(List<Integer> a) {
-
+            int value=0;
+            int index=0;
+            for (int i=0; i<a.size()-1;i++) {
+                if (a.get(i) < a.get(i)+1) {
+                    index=i;
+                    value=a.get(i);
+                }
+            }
+            a.remove(index);
+            a.add(0,value);
         }
 }
-
